@@ -117,7 +117,6 @@
             }
 
             function recordPresent(){
-                console.log(i.toLocaleString('en-US',{minimumIntegerDigits: 2,userGrouping: false}))
                 window.x.push(i.toLocaleString('en-US',{minimumIntegerDigits: 2,userGrouping: false}));
                 window.i++;
                 if(window.i>=minvalue && window.i<=maxvalue){
@@ -197,6 +196,8 @@
                     <button type="button" onclick="home()" class="btn btn-outline-light btn-lg" style="border-top-width: 3px;border-right-width: 3px;border-bottom-width: 3px;border-left-width: 3px;margin-bottom: 32px;margin-top: 12px;">Home</button><br>
                     <textarea id="textbox" rows="5" cols="35"></textarea><br>
                     <button onclick="copyText()" class="cp btn btn-light">Copy to ClipBoard</button>
+                    <button onclick="sendMessage(9052389052)" class="cp btn btn-light">Send to Suman Sir</button>
+                    <button onclick="sendMessage(9160009207)" class="cp btn btn-light">Send to Sudheer Sir</button>
                 </section>`
                 document.getElementById("textbox").innerHTML="Students Present: "+x+"\n\nStudents Absent: "+y;
             }
@@ -205,6 +206,11 @@
                 var Text = document.getElementById("textbox");
                 Text.select();
                 navigator.clipboard.writeText(Text.value);
+            }
+
+            function sendMessage(phno){
+                var a = document.getElementById("textbox").innerHTML;
+                window.location.href = "https://wa.me/91"+phno+"?text="+encodeURIComponent(a);
             }
                 
         </script>
